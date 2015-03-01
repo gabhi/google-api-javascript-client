@@ -117,5 +117,5 @@ function handleUnauthorized() {
 function handleAuthClick(event) {
   gapi.auth.authorize({
     client_id: clientId, scope: scopes, immediate: false}, handleAuthResult);
-  return false;
+  //return false;
 }
