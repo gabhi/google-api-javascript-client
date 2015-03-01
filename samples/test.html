@@ -1,0 +1,33 @@
+<button class="g-signin"
+        data-scope="https://www.googleapis.com/auth/plus.login"
+        data-clientid="IuvaTyY2TAE_j8XBMdkWUpA1"
+        data-callback="onSignIn"
+        data-theme="dark"
+        data-cookiepolicy="single_host_origin"
+        data-requestvisibleactions="http://schemas.google.com/AddActivity"
+        data-width="wide">
+</button>
+
+(function() {
+    window.onSignIn = function(authResult) {
+        if (authResult.access_token) {
+            console.log('success');
+            gapi.client.load('plus','v1', function(){ 
+                var request = gapi.client.plus.people.get({'userId' : 'me'});
+                request.execute(function(response) {
+                    console.log('ID: ' + response.id);
+                    console.log('Display Name: ' + response.displayName);
+                    console.log('Image URL: ' + response.image.url);
+                    console.log('Profile URL: ' + response.url);
+                });
+            });
+        } else if (authResult.error) {
+            console.log('There was an error: ' + authResult.error);
+        }
+    };
+    var po = document.createElement('script'); po.type = 'text/javascript';
+    po.async = true;
+    po.src = 'https://apis.google.com/js/client:plusone.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(po, s);
+})();
