@@ -83,7 +83,8 @@ function handleAuthorized() {
   var authorizeButton = document.getElementById('authorize-button');
   var runDemoButton = document.getElementById('run-demo-button');
 
-  authorizeButton.style.visibility = 'hidden';
+  //authorizeButton.style.visibility = 'hidden';
+  authorizeButton.style.visibility = '';
   runDemoButton.style.visibility = '';
   runDemoButton.onclick = makeApiCall;
   outputToPage('Click the Run Demo button to begin.');
