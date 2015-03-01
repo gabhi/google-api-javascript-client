@@ -100,7 +100,7 @@ function handleUnauthorized() {
   var authorizeButton = document.getElementById('authorize-button');
   var runDemoButton = document.getElementById('run-demo-button');
 
-  runDemoButton.style.visibility = 'hidden';
+  runDemoButton.style.visibility = '';
   authorizeButton.style.visibility = '';
   authorizeButton.onclick = handleAuthClick;
   outputToPage('Please authorize this script to access Google Analytics.');
